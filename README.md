@@ -31,5 +31,5 @@ mvn exec:java -Dexec.mainClass="main.java.Main"
  - Zozulya Vladislav - Team Lead / UI designer
  - Kabak Oleksandr - Developer / Tester
  - Klishchov Bogdan - Developer / Tester
- - Kulik Daniil - Developer / Tester
+ - Kulyk Daniil - Developer / Tester
  - Osetrov Andrey - Developer / Tester
