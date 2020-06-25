@@ -11,11 +11,15 @@ Estimated time - 200 hours.
 Link: https://maven.apache.org/download.cgi
 `Note : add \bin directory to system variable "Path"`.
 3) Install OpenJDK 11.
-4) Usind command line go into project directory and write 
+4) Clone repository
+```sh
+$ git clone https://github.com/ZozVlad/it_project.git
+```
+5) Usind command line go into project directory and write 
 ```sh
 $ mvn compile
 ```
-5) Run application
+6) Run application
 ```sh
 mvn exec:java -Dexec.mainClass="main.java.Main"
 ```
