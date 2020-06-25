@@ -65,7 +65,6 @@ public class MySQL_core {
 					campaign_id.add(campaign.getCampaign_id());   
 				}
 
-
 				for(int i = 0; i < campaign_id.size(); i++) {
 					Integer a = campaign_id.get(i);
 					if(a == id) {
@@ -77,7 +76,6 @@ public class MySQL_core {
 		}
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
 		}
 		return id;
@@ -92,7 +90,6 @@ public class MySQL_core {
 				Statement statement = conn.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT id_letter FROM Letter");
 				ArrayList<Integer> letter_id = new ArrayList<Integer>();
-
 				while (resultSet.next()) {
 					Letter letter = new Letter();
 					letter.setLetter_id(resultSet.getInt(1));
@@ -110,7 +107,6 @@ public class MySQL_core {
 
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
 		}
 		return id;
@@ -120,12 +116,10 @@ public class MySQL_core {
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			try (Connection conn = getConnection()){         
-
 				String sqlCommandInsert = "INSERT INTO Prospects (id_prospect, campaign_id, email, first_name, last_name, "
 						+ "full_name, company, phone, address, city, snippet_1, snippet_2, snippet_3, snippet_4, snippet_5, lastLetterSent, emailInfo) "
 						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement preparedStatement = conn.prepareStatement(sqlCommandInsert);
-
 				preparedStatement.setInt(1, prospect.getProspect_id());
 				preparedStatement.setInt(2, campaign_id);
 				preparedStatement.setString(3, prospect.getEmail());
@@ -150,8 +144,8 @@ public class MySQL_core {
 		}
 
 		catch(Exception ex){
-//				    System.out.println("5  Connection failed...");
-//				    System.out.println(ex);
+				    System.out.println("Connection failed...");
+				    System.out.println(ex);
 		}
 	}
 
@@ -164,7 +158,6 @@ public class MySQL_core {
 						+ "user_password, day_limit, toSend, lastRecipient, nextDate) "
 						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement preparedStatement = conn.prepareStatement(sqlCommandInsert);
-
 				preparedStatement.setInt(1, c.getCampaign_id());
 				preparedStatement.setInt(2, account_id);
 				preparedStatement.setString(3, c.getName());
@@ -191,8 +184,8 @@ public class MySQL_core {
 		}
 
 		catch(Exception ex){
-			//	    System.out.println("Connection failed...");
-			//	    System.out.println(ex);
+				    System.out.println("Connection failed...");
+				    System.out.println(ex);
 		}
 	}
 
@@ -215,9 +208,8 @@ public class MySQL_core {
 		}
 
 		catch(Exception ex){
-			//	    System.out.println("Connection failed...");
-			//
-			//	    System.out.println(ex);
+				    System.out.println("Connection failed...");
+				    System.out.println(ex);
 		}
 	}
 
@@ -226,13 +218,10 @@ public class MySQL_core {
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			try (Connection conn = getConnection()){
-
 				Statement statement = conn.createStatement();
 				String s = "SELECT * FROM Campaign WHERE Campaign.account_id = "
 						+ account_id;
-
 				ResultSet rs = statement.executeQuery(s);
-
 				while (rs.next()) {
 					Campaign campaign = new Campaign();
 					campaign.setCampaign_id(rs.getInt(1));
@@ -249,10 +238,8 @@ public class MySQL_core {
 					campaign.setLetters(getLettersFromMysql(campaign.getCampaign_id()));
 					campaigns.add(campaign);
 				}
-
 			}
 		}
-
 		catch(Exception ex){
 			System.out.println("Connection failed...");
 
@@ -291,18 +278,12 @@ public class MySQL_core {
 					prospect.setEmailInfo(resultSet.getString(17));
 					prospects.add(prospect);
 				}
-
 			}
 		}
-
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
-
-
 		}
-
 		return prospects;
 	}
 
@@ -311,36 +292,26 @@ public class MySQL_core {
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			try (Connection conn = getConnection()){
-
 				Statement statement = conn.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM Letter WHERE campaign_id = " + campaign_id);
-
 				while (resultSet.next()) {
 					Letter letter = new Letter();
 					letter.setLetter_id(resultSet.getInt(1));
-					//		    letter.setCampaign_id(resultSet.getInt(2));
 					letter.setSubject(resultSet.getString(3));
 					letter.setHtmltext(resultSet.getString(4)); 
 					letters.add(letter);
 				}
-
 			}
 		}
-
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
-
-
 		}
-
 		return letters;
 	}
 
 	public static Connection getConnection() throws SQLException, IOException{
-		String url = "jdbc:mysql://localhost/campaign_collections?serverTimezone=Europe/Kiev";
-		return DriverManager.getConnection(url, Constants.sqlLogin, Constants.sqlPassword);
+		return DriverManager.getConnection(Constants.sqlUrl, , Constants.sqlLogin, Constants.sqlPassword);
 	}
 
 	public static boolean deleteCampaign(int campaign_id) {
@@ -352,13 +323,10 @@ public class MySQL_core {
 				Statement statement = conn.createStatement();
 				statement.executeUpdate(deleteSQL);
 				tmp = true;
-
 			}
 		}
-
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
 		}
 		return tmp;
@@ -373,13 +341,10 @@ public class MySQL_core {
 				Statement statement = conn.createStatement();
 				statement.executeUpdate(deleteSQL);
 				tmp = true;
-
 			}
 		}
-
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
 		}
 		return tmp;
@@ -451,8 +416,8 @@ public class MySQL_core {
 			}
 		}
 		catch(Exception ex){
-//			System.out.println("2 Connection failed...");
-//			System.out.println(ex);
+			System.out.println("Connection failed...");
+			System.out.println(ex);
 		}
 		return tmp;
 	}
