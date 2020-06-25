@@ -1,0 +1,90 @@
+.linear-grad {
+	-fx-background-color:  linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+.linear-gradMP {
+	-fx-background-color: linear-gradient(to top, #051937, #00395a, #005961, #007646, #678c15);
+}
+.linera-gradMP2 {
+	-fx-background-color: linear-gradient(to top, #a7caff, #8ddfff, #97efee, #bffad8, #f0ffcd);
+}
+.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, -1 -1 1 -1 ;
+    -fx-background-radius: 0 ;
+}
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+}
+
+.button1 {
+    -fx-background-color :linear-gradient(to top left, #004d7a,#00bf72);
+    -fx-background-radius :  30 30 30 30;
+}
+.button1:hover {
+    -fx-background-color :linear-gradient(to top left, #00bf72, #004d7a);
+    -fx-background-radius :  30 30 30 30;
+}
+.button1:pressed {
+    -fx-background-color :linear-gradient(to top left, #004d7a, #00bf72);
+    -fx-background-radius :  30 30 30 30;
+}
+
+
+
+#about {
+    -fx-background-color :linear-gradient(to top left, #c3dcff,#d6ff7b);
+    -fx-background-radius :  30 30 30 30;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 1.4em;  /* 12 */
+}
+#about:hover {
+    -fx-background-color :linear-gradient(to top left, #d6ff7b, #c3dcff);
+    -fx-background-radius :  30 30 30 30;
+}
+#about:pressed {
+    -fx-background-color :linear-gradient(to top left, #c3dcff, #d6ff7b);
+    -fx-background-radius :  30 30 30 30;
+}
+
+
+
+.button3 {
+    -fx-background-color :linear-gradient(to top left, #35ACF1, #F6B46F);
+    -fx-background-radius :  30;
+    -fx-border-style: solid;
+    -fx-border-radius: 30;
+    -fx-border-insets: -7;    
+    -fx-border-color: linear-gradient(to top left, #35ACF1, #F6B46F);
+
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 1.4em;  /* 12 */
+}
+.button3:hover {
+    -fx-background-color :linear-gradient(to top left,  #F6B46F,#35ACF1);
+    -fx-background-radius : 30;
+    -fx-border-style: solid;
+    -fx-border-radius: 30;
+    -fx-border-insets: -6;
+    -fx-border-color: linear-gradient(to top left, #F6B46F,#35ACF1);
+}
+.button3:pressed {
+    -fx-background-color :linear-gradient(to top left, #35ACF1, #F6B46F);
+    -fx-background-radius :  30;
+    -fx-border-style: solid;
+    -fx-border-radius: 30;
+    -fx-border-insets: -5;
+    -fx-border-color: linear-gradient(to top left, #35ACF1, #F6B46F);
+}
+.check-box .box {
+	-fx-background-color: white;
+	-fx-border-color:grey;
+	-fx-border-radius:3px; 
+}
+
+.check-box:selected .mark {
+	-fx-background-color: white;
+}
+
+.check-box:selected .box {
+	-fx-background-color: #00bf72;
+}

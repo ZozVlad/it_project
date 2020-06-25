@@ -1,0 +1,37 @@
+.button {
+    -fx-background-color :linear-gradient(to top left, #004d7a,#00bf72);
+    -fx-background-radius :  35 35 35 35;
+	-fx-font-weight: bold
+}
+.button:hover {
+    -fx-background-color :linear-gradient(to top left, #00bf72, #004d7a);
+    -fx-background-radius :  35 35 35 35;
+    	-fx-font-weight: bold
+}
+.button:pressed {
+    -fx-background-color :linear-gradient(to top left, #004d7a, #00bf72);
+    -fx-background-radius :  35 35 35 35;
+    -fx-font-weight: bold
+}
+.constants .context-menu { -fx-background-color: #0CA20E; -fx-font-weight: bold}
+.constants .menu-item:focused { -fx-background-color: #004d7a; -fx-font-weight: bold}
+.constants .menu-item > .label { -fx-text-fill: white; -fx-font-weight: bold}
+.constants .menu-item:focused > .label { -fx-text-fill: white; -fx-font-weight: bold}
+.choice-box { -fx-background-color: #0CA20E;-fx-mark-color:  white; -fx-font-weight: bold}
+.choice-box > .label { -fx-text-fill: white; }
+
+.addEmail {
+    -fx-background-color :linear-gradient(to top left, #004d7a,#00bf72);
+    -fx-background-radius :  35 35 35 35;
+	-fx-font-weight: bold
+}
+.addEmail:hover {
+    -fx-background-color :linear-gradient(to top left, #00bf72, #004d7a);
+    -fx-background-radius :  35 35 35 35;
+    	-fx-font-weight: bold
+}
+.addEmail:pressed {
+    -fx-background-color :linear-gradient(to top left, #004d7a, #00bf72);
+    -fx-background-radius :  35 35 35 35;
+    -fx-font-weight: bold
+}

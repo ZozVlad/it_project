@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.ProspectPaneController">
+   <children>
+      <VBox layoutX="4.0" layoutY="32.0" prefHeight="473.0" prefWidth="845.0">
+         <children>
+            <TableView fx:id="prospectTable" prefHeight="569.0" prefWidth="845.0" stylesheets="@../prospectTable.css">
+              <columns>
+                  <TableColumn fx:id="info" prefWidth="86.33334350585938" text="Progress" />
+                <TableColumn fx:id="EMAIL" prefWidth="191.66668701171875" text="EMAIL" />
+                <TableColumn fx:id="FIRSTNAME" minWidth="0.0" prefWidth="173.33331298828125" text="FIRSTNAME" />
+                  <TableColumn fx:id="LASTNAME" prefWidth="150.0" text="LASTNAME" />
+                  <TableColumn fx:id="FULLNAME" minWidth="0.0" prefWidth="150.0" text="FULLNAME" />
+                  <TableColumn fx:id="COMPANY" prefWidth="150.0" text="COMPANY" />
+                  <TableColumn fx:id="PHONE" minWidth="0.0" prefWidth="150.0" text="PHONE" />
+                  <TableColumn fx:id="ADDRESS" prefWidth="150.0" text="ADDRESS" />
+                  <TableColumn fx:id="CITY" minWidth="0.0" prefWidth="150.0" text="CITY" />
+                  <TableColumn fx:id="SNIPPET1" prefWidth="150.0" text="SNIPPET1" />
+                  <TableColumn fx:id="SNIPPET2" minWidth="0.0" prefWidth="150.0" text="SNIPPET2" />
+                  <TableColumn fx:id="SNIPPET3" prefWidth="150.0" text="SNIPPET3" />
+                  <TableColumn fx:id="SNIPPET4" minWidth="0.0" prefWidth="150.0" text="SNIPPET4" />
+                  <TableColumn fx:id="SNIPPET5" minWidth="0.0" prefWidth="150.0" text="SNIPPET5" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <TextField fx:id="searchField" layoutX="283.0" layoutY="527.0" prefHeight="30.0" prefWidth="421.0" promptText="Search" stylesheets="@../style.css" />
+      <ChoiceBox fx:id="choicebox" layoutX="87.0" layoutY="527.0" prefHeight="30.0" prefWidth="156.0" stylesheets="@../styleTableButton.css" />
+      <ImageView fitHeight="45.0" fitWidth="48.0" layoutX="18.0" layoutY="520.0" onMouseClicked="#delete" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../rubbish.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="820.0" layoutY="1.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../close.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="794.0" layoutY="4.0" onMouseClicked="#hide" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../hide.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="5.0" layoutY="1.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Hyperlink fx:id="hyperlink" layoutX="750.0" layoutY="531.0" onAction="#showDuplicates" />
+   </children>
+</Pane>
