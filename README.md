@@ -11,19 +11,11 @@ Estimated time - 200 hours.
 Link: https://maven.apache.org/download.cgi
 `Note : add \bin directory to system variable "Path"`.
 3) Install OpenJDK 11.
-4) Download JavaFX 11.0.2.
-5) Additional libraries: 
-    * Apache POI
-    * Java Activation Framework
-    * Java Mail
-    * Mysql connector 
-    * AnimateFX
-    * TrayNotification
-6) Usind command line go into project directory and write 
+4) Usind command line go into project directory and write 
 ```sh
 $ mvn compile
 ```
-7) Run application
+5) Run application
 ```sh
 mvn exec:java -Dexec.mainClass="main.java.Main"
 ```
