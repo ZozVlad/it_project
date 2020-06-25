@@ -7,5 +7,5 @@ public class Constants {
 	static String login;
 	static String sqlLogin = "root";
 	static String sqlPassword = "787898mysql";
-	static String url = "jdbc:mysql://localhost/campaign_collections?serverTimezone=Europe/Kiev";
+	static String sqlUrl = "jdbc:mysql://localhost/campaign_collections?serverTimezone=Europe/Kiev";
 }

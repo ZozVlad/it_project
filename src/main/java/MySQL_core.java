@@ -311,7 +311,7 @@ public class MySQL_core {
 	}
 
 	public static Connection getConnection() throws SQLException, IOException{
-		return DriverManager.getConnection(Constants.sqlUrl, , Constants.sqlLogin, Constants.sqlPassword);
+		return DriverManager.getConnection(Constants.sqlUrl, Constants.sqlLogin, Constants.sqlPassword);
 	}
 
 	public static boolean deleteCampaign(int campaign_id) {
