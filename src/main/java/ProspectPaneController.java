@@ -24,28 +24,28 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import main.models.Prospect;
 public class ProspectPaneController implements Initializable {
-	@FXML private TableView<Prospect> prospectTable;
-
-	@FXML private TableColumn<Prospect, String> info;
-	@FXML private TableColumn<Prospect, String> EMAIL;
-	@FXML private TableColumn<Prospect, String> FIRSTNAME;
-	@FXML private TableColumn<Prospect, String> LASTNAME;
-	@FXML private TableColumn<Prospect, String> FULLNAME;
-	@FXML private TableColumn<Prospect, String> COMPANY;
-	@FXML private TableColumn<Prospect, String> PHONE;
-	@FXML private TableColumn<Prospect, String> ADDRESS;
-	@FXML private TableColumn<Prospect, String> CITY;
-	@FXML private TableColumn<Prospect, String> SNIPPET1;
-	@FXML private TableColumn<Prospect, String> SNIPPET2;
-	@FXML private TableColumn<Prospect, String> SNIPPET3;
-	@FXML private TableColumn<Prospect, String> SNIPPET4;
-	@FXML private TableColumn<Prospect, String> SNIPPET5;
-	@FXML private TextField searchField;
-	@FXML private ChoiceBox<String> choicebox;
-	@FXML private Hyperlink hyperlink = new Hyperlink();
-
-	private ArrayList<String> emailDuplicates = new ArrayList<String>();
-
+    @FXML private TableView<Prospect> prospectTable;
+    
+    @FXML private TableColumn<Prospect, String> info;
+    @FXML private TableColumn<Prospect, String> EMAIL;
+    @FXML private TableColumn<Prospect, String> FIRSTNAME;
+    @FXML private TableColumn<Prospect, String> LASTNAME;
+    @FXML private TableColumn<Prospect, String> FULLNAME;
+    @FXML private TableColumn<Prospect, String> COMPANY;
+    @FXML private TableColumn<Prospect, String> PHONE;
+    @FXML private TableColumn<Prospect, String> ADDRESS;
+    @FXML private TableColumn<Prospect, String> CITY;
+    @FXML private TableColumn<Prospect, String> SNIPPET1;
+    @FXML private TableColumn<Prospect, String> SNIPPET2;
+    @FXML private TableColumn<Prospect, String> SNIPPET3;
+    @FXML private TableColumn<Prospect, String> SNIPPET4;
+    @FXML private TableColumn<Prospect, String> SNIPPET5;
+    @FXML private TextField searchField;
+    @FXML private ChoiceBox<String> choicebox;
+    @FXML private Hyperlink hyperlink = new Hyperlink();
+    
+    private ArrayList<String> emailDuplicates = new ArrayList<String>();
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Collections.prospectView.clear();
@@ -66,31 +66,31 @@ public class ProspectPaneController implements Initializable {
 		SNIPPET5.setCellValueFactory(new PropertyValueFactory<Prospect, String>("snippet5"));
 		prospectTable.setItems(Collections.prospectView);
 
-		choicebox.getItems().add("Field");
-		choicebox.getItems().add("EMAIL");
-		choicebox.getItems().add("FIRSTNAME");
-		choicebox.getItems().add("LASTNAME");
+        choicebox.getItems().add("Field");
+        choicebox.getItems().add("EMAIL");
+        choicebox.getItems().add("FIRSTNAME");
+        choicebox.getItems().add("LASTNAME");
 		choicebox.getItems().add("FULLNAME");
-		choicebox.getItems().add("COMPANY");
-		choicebox.getItems().add("PHONE");
-		choicebox.getItems().add("ADDRESS");
-		choicebox.getItems().add("CITY");
-		choicebox.getItems().add("SNIPPET1");
-		choicebox.getItems().add("SNIPPET2");
-		choicebox.getItems().add("SNIPPET3");
-		choicebox.getItems().add("SNIPPET4");
-		choicebox.getItems().add("SNIPPET5");
-		choicebox.getSelectionModel().selectFirst();
+        choicebox.getItems().add("COMPANY");
+        choicebox.getItems().add("PHONE");
+        choicebox.getItems().add("ADDRESS");
+        choicebox.getItems().add("CITY");
+        choicebox.getItems().add("SNIPPET1");
+        choicebox.getItems().add("SNIPPET2");
+        choicebox.getItems().add("SNIPPET3");
+        choicebox.getItems().add("SNIPPET4");
+        choicebox.getItems().add("SNIPPET5");
+        choicebox.getSelectionModel().selectFirst();
 		choicebox.getSelectionModel().selectedItemProperty().addListener(
-				(ObservableValue<? extends String> observable, String oldValue, String newValue) 
-				-> searchProspect(newValue));
+        		(ObservableValue<? extends String> observable, String oldValue, String newValue) 
+        		-> searchProspect(newValue));
 		searchField.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				searchProspect(choicebox.getValue());
 			};
 		});
-
+		
 		EMAIL.setCellFactory(TextFieldTableCell.forTableColumn());
 		EMAIL.setOnEditCommit(e->{
 			e.getTableView().getItems().get(e.getTablePosition().getRow()).setEmail(e.getNewValue());
@@ -157,12 +157,11 @@ public class ProspectPaneController implements Initializable {
 			e.getTableView().getItems().get(e.getTablePosition().getRow()).setSnippet5(e.getNewValue());
 			MySQL_core.editProspectField(e.getTableView().getItems().get(e.getTablePosition().getRow()).getProspect_id(), e.getNewValue(), "snippet_5");
 		});
-
+		
 		prospectTable.setEditable(true);
 		prospectTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		checkDuplicates();
 	}
-
 	private void searchProspect(String newValue) {
 		Collections.prospectView.clear();
 		for(Prospect p : MainPaneController.c.getProspects()) {
@@ -238,61 +237,62 @@ public class ProspectPaneController implements Initializable {
 
 		}
 	}
-	@FXML
-	void back(MouseEvent event) {
-		ChangeScene c = new ChangeScene("/main/resources/view/MainPane.fxml");
-		c.start();
-	}
+    @FXML
+    void back(MouseEvent event) {
+    	ChangeScene c = new ChangeScene("/main/resources/view/MainPane.fxml");
+    	c.start();
+    }
 
-	@FXML
-	void close(MouseEvent event) {
+    @FXML
+    void close(MouseEvent event) {
 		((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close();
-	}
+    }
 
-	@FXML
-	void delete(MouseEvent event) {
+    @FXML
+    void delete(MouseEvent event) {
 		ObservableList<Prospect> prospectsSelected = prospectTable.getSelectionModel().getSelectedItems();
 		ArrayList<Prospect> items =  new ArrayList<Prospect> (prospectTable.getSelectionModel().getSelectedItems());
-		Collections.prospectView.removeAll(prospectsSelected);	
-		prospectTable.getSelectionModel().clearSelection();
-		MainPaneController.c.getProspects().removeAll(items);
-		for(Prospect p : items) {
-			MySQL_core.deleteProspect(p.getProspect_id());
-		}
-	}
+        Collections.prospectView.removeAll(prospectsSelected);	
+        prospectTable.getSelectionModel().clearSelection();
+        MainPaneController.c.getProspects().removeAll(items);
+        for(Prospect p : items) {
+        	MySQL_core.deleteProspect(p.getProspect_id());
+        }
+        checkDuplicates();
+    }
 
-	@FXML
-	void hide(MouseEvent event) {
-		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		stage.setIconified(true);
-	}
-	private void checkDuplicates() {
-		emailDuplicates.clear();
-		for(Prospect p : MainPaneController.c.getProspects()) {
-			for(Prospect pp : MainPaneController.c.getProspects()) {
-				if(!p.equals(pp) && p.getEmail().equals(pp.getEmail()) && !checkIfInArray(p.getEmail())) {
-					emailDuplicates.add(p.getEmail());
-				}
-			}
-		}
-		if(emailDuplicates.size() != 0) {
-			hyperlink.setText("Duplicates: " + emailDuplicates.size());
-		} else {
-			hyperlink.setText("");
-		}
-	}
-	private boolean checkIfInArray(String email) {
-		for(String s : emailDuplicates) {
-			if(s.equals(email)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	@FXML
-	void showDuplicates(ActionEvent event) {
-		choicebox.getSelectionModel().selectFirst();
-		searchField.setText("");
+    @FXML
+    void hide(MouseEvent event) {
+    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	stage.setIconified(true);
+    }
+    private void checkDuplicates() {
+    	emailDuplicates.clear();
+    	for(Prospect p : MainPaneController.c.getProspects()) {
+    		for(Prospect pp : MainPaneController.c.getProspects()) {
+    			if(!p.equals(pp) && p.getEmail().equals(pp.getEmail()) && !checkIfInArray(p.getEmail())) {
+    				emailDuplicates.add(p.getEmail());
+    			}
+    		}
+    	}
+    	if(emailDuplicates.size() != 0) {
+    		hyperlink.setText("Duplicates: " + emailDuplicates.size());
+    	} else {
+    		hyperlink.setText("");
+    	}
+    }
+    private boolean checkIfInArray(String email) {
+    	for(String s : emailDuplicates) {
+    		if(s.equals(email)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    @FXML
+    void showDuplicates(ActionEvent event) {
+    	choicebox.getSelectionModel().selectFirst();
+    	searchField.setText("");
 		Collections.prospectView.clear();
 		for(String email : emailDuplicates) {
 			for(Prospect p : MainPaneController.c.getProspects()) {
@@ -301,5 +301,5 @@ public class ProspectPaneController implements Initializable {
 				}
 			}
 		}
-	}
+    }
 }
