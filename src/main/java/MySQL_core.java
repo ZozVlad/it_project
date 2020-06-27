@@ -35,14 +35,13 @@ public class MySQL_core {
 					Integer a = prospect_id.get(i);
 					if(a == id) {
 						id++;
-						i = 0;
+						i = -1;
 					}
 				}
 			}
 		}
 		catch(Exception ex){
 			System.out.println("Connection failed...");
-
 			System.out.println(ex);
 		}
 		
@@ -69,7 +68,7 @@ public class MySQL_core {
 					Integer a = campaign_id.get(i);
 					if(a == id) {
 						id++;
-						i = 0;
+						i = -1;
 					}
 				}
 			}
@@ -99,7 +98,7 @@ public class MySQL_core {
 					Integer a = letter_id.get(i);
 					if(a == id) {
 						id++;
-						i = 0;
+						i = -1;
 					}
 				}
 			}
