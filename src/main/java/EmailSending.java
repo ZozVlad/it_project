@@ -46,7 +46,6 @@ public class EmailSending {
 
 		message.setSubject(subject);
 		message.setDataHandler(new DataHandler(new HTMLDataSource(finalText)));
-		System.out.println(finalText);
 		message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient.getEmail()));
 
 		Transport.send(message);
